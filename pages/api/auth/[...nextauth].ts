@@ -49,16 +49,30 @@ export default NextAuth({
         // Fetch current IP address
         var ipAddress = ip.address();
 
-        // Modify IP address to forward to docker container
-        ipAddress =
-          ipAddress.substring(0, ipAddress.lastIndexOf(".") + 1) +
-          (parseInt(ipAddress.substring(ipAddress.length - 1)) + 1).toString();
+        // // Modify IP address to forward to docker container
+        // ipAddress =
+        //   ipAddress.substring(0, ipAddress.lastIndexOf(".") + 1) +
+        //   (parseInt(ipAddress.substring(ipAddress.length - 1)) + 1).toString();
 
-        // GET request to REST endpoint of Hasura to fetch all users
-        const res = await fetch(`http://${ipAddress}:8080/api/rest/users`, {
-          method: "GET",
-          headers: hasuraHeaders,
-        });
+        let res;
+        try {
+          const dockerIP1 = ipAddress.substring(0, ipAddress.lastIndexOf(".") + 1) +
+          (parseInt(ipAddress.substring(ipAddress.length - 1)) + 1).toString();
+          // GET request to REST endpoint of Hasura to fetch all users
+          res = await fetch(`http://${dockerIP1}:8080/api/rest/users`, {
+            method: "GET",
+            headers: hasuraHeaders,
+          });
+        } catch {
+          const dockerIP2 = ipAddress.substring(0, ipAddress.lastIndexOf(".") + 1) +
+          (parseInt(ipAddress.substring(ipAddress.length - 1))).toString();
+          // GET request to REST endpoint of Hasura to fetch all users
+          res = await fetch(`http://${dockerIP2}:8080/api/rest/users`, {
+            method: "GET",
+            headers: hasuraHeaders,
+          });
+        }
+        
 
         // Parse response as JSON
         const usersData = await res.json();
