@@ -147,7 +147,7 @@ INSERT INTO "public"."Customer"("id", "name", "address", "dateOfBirth") VALUES (
 
 INSERT INTO "public"."Store"("id", "name", "address") VALUES (41, E'Demo Store 41', E'Demo Store Address 41');
 
-INSERT INTO "public"."Product"("id", "name", "category", "description") VALUES (5, E'Demo Product 5', E'Demo Category 5', E'https://i.pinimg.com/550x/20/11/86/2011866a504f2e68bdd35a445726500c.jpg');
+INSERT INTO "public"."Product"("id", "name", "category", "description") VALUES (6, E'Demo Product 6', E'Demo Category 6', E'https://i.pinimg.com/550x/20/11/86/2011866a504f2e68bdd35a445726500c.jpg');
 
 INSERT INTO "public"."Product"("id", "name", "category", "description") VALUES (7, E'Demo Product 7', E'Demo Category 7', E'https://i.pinimg.com/originals/ef/59/0d/ef590d3e2990e6827d96ad8ce55a755b.png');
 
@@ -218,8 +218,6 @@ INSERT INTO "public"."Product"("id", "name", "category", "description") VALUES (
 INSERT INTO "public"."Product"("id", "name", "category", "description") VALUES (40, E'Demo Product 40', E'Demo Category 40', E'https://dvy7d3tlxdpkf.cloudfront.net/kncb/SEO/_1200x630_crop_center-center_82_none/ogimage_kncb.png');
 
 INSERT INTO "public"."Product"("id", "name", "category", "description") VALUES (41, E'Demo Product 41', E'Demo Category 41', E'https://dynaimage.cdn.cnn.com/cnn/c_fill,g_auto,w_1200,h_675,ar_16:9/https%3A%2F%2Fcdn.cnn.com%2Fcnnnext%2Fdam%2Fassets%2F210721162226-netherlands-zambia.jpg');
-
-INSERT INTO "public"."Purchase"("id", "product", "customer", "store", "date") VALUES (5, 5, 5, 5, E'2022-06-01');
 
 INSERT INTO "public"."Purchase"("id", "product", "customer", "store", "date") VALUES (6, 6, 6, 6, E'2022-06-02');
 
@@ -292,8 +290,6 @@ INSERT INTO "public"."Purchase"("id", "product", "customer", "store", "date") VA
 INSERT INTO "public"."Purchase"("id", "product", "customer", "store", "date") VALUES (40, 40, 40, 40, E'2022-07-06');
 
 INSERT INTO "public"."Purchase"("id", "product", "customer", "store", "date") VALUES (41, 41, 41, 41, E'2022-07-07');
-
-INSERT INTO "public"."Inventory"("id", "store", "date", "product", "price") VALUES (5, 5, E'2022-05-01', 5, 105);
 
 INSERT INTO "public"."Inventory"("id", "store", "date", "product", "price") VALUES (6, 6, E'2022-05-06', 6, 106);
 
