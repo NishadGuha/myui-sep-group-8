@@ -25,12 +25,20 @@ help: ## This help.
 # DOCKER TASKS
 setup:
 	@echo "Creating application and setting up database ..."
-	docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build \
-	&& npm i --force --silent \
-	&& yarn install --ignore-engines --silent \
-	&& cd hasura && hasura metadata apply \
-	&& hasura migrate apply --up all --all-databases \
-	&& sudo chmod a+rwx .
+	ifeq ($(OS),Windows_NT)     # is Windows_NT on XP, 2000, 7, Vista, 10...
+		docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build \
+		&& npm i --force --silent \
+		&& yarn install --ignore-engines --silent \
+		&& cd hasura && hasura metadata apply \
+		&& hasura migrate apply --up all --all-databases
+	else
+		docker-compose -f docker-compose.yml -f docker-compose-dev.yml up -d --build \
+		&& npm i --force --silent \
+		&& yarn install --ignore-engines --silent \
+		&& cd hasura && hasura metadata apply \
+		&& hasura migrate apply --up all --all-databases \
+		&& sudo chmod a+rwx .
+	endif
 
 run-dev:
 	@echo "Starting development environment ..."
