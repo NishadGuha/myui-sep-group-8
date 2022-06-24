@@ -30,7 +30,8 @@ setup:
 	&& npm i --force --silent \
 	&& yarn install --ignore-engines --silent \
 	&& cd hasura && hasura metadata apply \
-	&& hasura migrate apply --up all --all-databases
+	&& hasura migrate apply --up all --all-databases \
+	&& sudo chmod a+rwx .
 
 run-dev:
 	@echo "Starting development environment ..."
