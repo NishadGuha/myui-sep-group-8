@@ -1,7 +1,0 @@
-- "!include public_Customer.yaml"
-- "!include public_Inventory.yaml"
-- "!include public_Product.yaml"
-- "!include public_Purchase.yaml"
-- "!include public_Store.yaml"
-- "!include public_user_versioned_config.yaml"
-- "!include public_users.yaml"
